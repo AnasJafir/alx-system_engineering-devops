@@ -5,3 +5,5 @@
 4.Create an empty file
 5.Adding execute permission to an owner of a file
 6.Adding permissions to owner and group owner and other users
+7.Adding execute permission to all
+8.No permission for owner and group owner and all permissions to other users
