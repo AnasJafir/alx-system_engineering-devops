@@ -3,4 +3,4 @@
 2.Groups of the current user
 3.Change owner of file
 4.Create an empty file
-5.Adding execute permission to a file
+5.Adding execute permission toan owner of a file
