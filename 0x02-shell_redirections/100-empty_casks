@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name '.*' -type d,f -printf '%f/n'
+find . -name '.*' -type d,f -printf '%f\n'
