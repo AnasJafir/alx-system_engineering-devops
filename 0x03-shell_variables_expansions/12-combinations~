@@ -1,0 +1,2 @@
+#!/bin/bash
+echo {a..z}{a..z} | cut -c1-64 | tr ' ' '\n'
