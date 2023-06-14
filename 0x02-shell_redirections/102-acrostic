@@ -1,2 +1,2 @@
 #!/bin/bash
-tr ',;.:-—' '######' | cut -d '#' -f 1 | cut -d ' ' -f 1 | cut -c 1 | paste -sd ''
+cut -c 1 | paste -sd ''
