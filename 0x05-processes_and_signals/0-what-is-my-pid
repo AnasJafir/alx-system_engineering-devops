@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# Script to get the PID of this script
 echo "$$"
