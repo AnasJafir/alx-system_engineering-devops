@@ -1,16 +1,25 @@
-# Define the package name and version
-$package_name = 'Flask'
-$desired_version = '2.1.0'
+# Installs flask and required packages
 
-# Ensure pip is installed
+# Install Python 3.8.10
+package { 'python3.8':
+  ensure => '3.8.10',
+}
+
+# Install pip
 package { 'python3-pip':
-  ensure => installed,
+  ensure => present,
 }
 
-# Install Flask with the specific version using pip
-exec { "install_flask_${desired_version}":
-  command => "/usr/bin/pip3 install ${package_name}==${desired_version}",
-  path    => ['/usr/bin'],
-  unless  => "/usr/bin/python3 -m flask --version | grep ${desired_version}",
+# Install Flask 2.1.0
+package { 'flask':
+  ensure   => '2.1.0',
+  provider => 'pip',
+  require  => Package['python3-pip'],
 }
 
+# Install Werkzeug 2.1.1
+package { 'werkzeug':
+  ensure   => '2.1.1',
+  provider => 'pip',
+  require  => Package['python3-pip'],
+}
