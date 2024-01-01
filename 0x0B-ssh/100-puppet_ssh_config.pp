@@ -5,9 +5,9 @@ file { '/etc/ssh/ssh_config':
 	ensure => present,
 
 	content => "
-	#SSH client cofiguration
+	#SSH client configuration
 	Host *
 	IdentityFile ~/.ssh/school
-	PasswordAuthentiation no
+	PasswordAuthentication no
 	",
 }
