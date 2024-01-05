@@ -11,4 +11,4 @@ ip=$2
 username=$3
 path_to_ssh_private_key=$4
 
-scp -o "SctrictHostKeyChecking=no" -i "$path_to_ssh_key" "$file_path" "$username@$ip:~/"
+scp -o "SctrictHostKeyChecking=no" -i "$file_path" "$username@$ip:~/"
