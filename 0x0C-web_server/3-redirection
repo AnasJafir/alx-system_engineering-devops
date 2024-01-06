@@ -1,20 +1,8 @@
 #!/usr/bin/env bash
-# Install nginx on web server
-# Nginx should be listening on port 80
 # Redirects to another page
-
-# Update package list and install Nginx
 sudo apt-get update
-sudo apt-get -y install nginx
-
-# Allow HTTP traffic through the firewall
-sudo ufw allow 'Nginx HTTP'
-
-# Create a simple HTML file
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html >/dev/null
-
-# Configure a 301 redirect for /redirect_me
-sudo sed -i '/location \/ {/a \\tlocation \/redirect_me { rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent; }' /etc/nginx/sites-available/default
-
-# Restart Nginx to apply changes
+sudo apt-get install -y nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/AnasJafir permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
