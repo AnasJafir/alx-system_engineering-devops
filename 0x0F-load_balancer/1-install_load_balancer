@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Installing and configuring HAproxy in my load balancer server
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+echo '
+frontend webnush.tech
+        bind 0:80
+        default_backend web_servers
+
+backend web_servers
+        balance roundrobin
+        server 428647-web-01 54.157.175.161:80
+        server 428647-web-02 52.91.136.227:80
+' >> /etc/haproxy/haproxy.cfg
+
+# enable haproxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
+# Testing the HAproxy configuration file
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+# Restart the Nginx service
+sudo service haproxy restart
