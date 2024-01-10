@@ -2,5 +2,5 @@
 # make nginx run and listne in port 80
 
 rm /etc/nginx/sites-enabled/default
-ls -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service nginx restart
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
