@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 # Function to fetch DNS record information
 fetch_dns_info() {
     local domain=$1
