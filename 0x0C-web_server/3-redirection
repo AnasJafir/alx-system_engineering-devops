@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Handling with redirection
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install nginx -y
+sudo service nginx start
+# tee command allows us to write to files with sudo permissions
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
+# sed command allows us to replace a line with multiple lines
+# this line tells the server to search where the server_name is written then append a specific text that apply a permanent redirection
+sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me https://www.google.com permanent;" /etc/nginx/sites-available/default
+sudo nginx -t
+sudo service nginx restart
