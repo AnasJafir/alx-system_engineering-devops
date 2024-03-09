@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that configures web server with installing and setting up Nginx
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install nginx -y
+sudo service nginx start
+# tee command allows us to write to files with sudo permissions
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
