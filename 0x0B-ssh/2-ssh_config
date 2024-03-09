@@ -1,0 +1,6 @@
+# ~/.ssh/config
+
+Host 54.146.9.154
+  IdentityFile ~/.ssh/school
+  PasswordAuthentication no
+  PubkeyAuthentication yes
