@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Create a script to install and configure HAProxy on your load balancer
+# Configure HAProxy to send traffic to web-01 and web-02 servers
+# Distribute requests using a roundrobin algorithm
+# Make sure that HAProxy can be managed via an init script
+
+# Install and configure HAproxy on your load balancer
+sudo apt-get -y update
+sudo apt-get -y install haproxy
+
+# Edit config file
+server_config=\
+"
+frontend webnush_frontend
+        bind *:80
+        mode http
+        default_backend webnush_backend
+backend webnush_backend
+        balance roundrobin
+        server 428647-web-01 54.146.9.154:80 check
+        server 428647-web-02 54.152.182.247:80 check
+"
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
+
+# Enable HAProxy to be started by init script
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy > /dev/null
+
+# Testing the HAProxy configuration file
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+# Restart the HAProxy service
+sudo service haproxy restart
+
