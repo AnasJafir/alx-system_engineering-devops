@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that take an argument as a user
+usr="$1"
+sudo -u "$usr" whoami
