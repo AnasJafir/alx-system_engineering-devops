@@ -1,1 +1,1 @@
-Web stuck debugging 2
+Web stack debugging 2
