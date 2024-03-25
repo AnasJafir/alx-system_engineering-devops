@@ -31,5 +31,8 @@ def get_employee_todo_list_progress(employee_id):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: {} employee_id".format(sys.argv[0]))
+        sys.exit(1)
     employee_id = int(sys.argv[1])
     get_employee_todo_list_progress(employee_id)
