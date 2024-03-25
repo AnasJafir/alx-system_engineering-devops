@@ -26,8 +26,8 @@ def get_employee_todo_list_progress(employee_id):
     print('Employee {} is done with tasks({}/{}):'.format(
         employee_name, num_completed_tasks, total_todos
         ))
-    for task_title in completed_tasks:
-        print(f'     {task_title}')
+    for task in completed_tasks:
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
