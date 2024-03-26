@@ -25,7 +25,7 @@ def todo_to_json(emp_id):
             "task": task.get('title'),
             "completed": task.get('completed'),
             "username": user})
-    return({emp_id: task_list})
+    return ({emp_id: task_list})
 
 
 def get_all_emp():
