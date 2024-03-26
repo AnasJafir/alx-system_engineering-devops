@@ -5,7 +5,7 @@ import sys
 
 
 if __name__ == '__main__':
-    employee_id = sys.argv[1]
+    employee_id = int(sys.argv[1])
     url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
     response = requests.get(url)
     username = response.json().get('username')
