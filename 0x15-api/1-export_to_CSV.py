@@ -17,18 +17,14 @@ def get_employee_todo_list_progress(employee_id):
                 )
             ).json()
     employee_name = employee_infos['name']
-    with open('{}.csv'.format(employee_id), 'w') as f:
+    with open('{}.csv'.format(employee_id), 'w') as file:
         for task in todo_list:
-            f.write('"{}","{}","{}","{}"\n'
+            file.write(
+                    '"{}","{}","{}","{}"\n'
                     .format(
-                        employee_id, employee_infos[
-                            'username'
-                            ], task[
-                                'completed'
-                                ], task[
-                                    'title'
-                                    ]
-                        ))
+                        employee_id, employee_infos['username'], task['completed'], task['title']
+                        )
+                    )
 
 
 if __name__ == "__main__":
