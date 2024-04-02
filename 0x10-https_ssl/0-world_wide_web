@@ -3,7 +3,7 @@
 
 # Check if at least one argument is provided
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 domain [subdomain1 subdomain2 ...]"
+  echo "Usage: $0 domain [subdomain]"
   exit 1
 fi
 
@@ -13,9 +13,9 @@ domain="$1"
 # Set subdomains to query
 subdomains=("www" "lb-01" "web-01" "web-02")
 
-# If additional subdomains are provided as arguments, add them to the subdomains array
+# If a subdomain is provided as an argument, only query that subdomain
 if [ $# -gt 1 ]; then
-  subdomains+=("${@:2}")
+  subdomains=("$2")
 fi
 
 # Loop through subdomains and display information
