@@ -5,8 +5,8 @@ import requests
 
 def number_of_subscribers(subreddit):
     """Method that return the number of subs"""
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {'User-Agent': 'MyBot/1.0 (by /u/yourusername)'}
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {'User-Agent': 'My-User-Agent'}
     response = requests.get(url, headers=headers)
     
     if response.status_code == 200:
